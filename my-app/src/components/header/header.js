@@ -79,10 +79,12 @@ const HeaderPage = (props) => {
 
   //// fetching the all products
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/api/product`).then((response) => {
-      setAllProducts(response.data);
-      setTotalPages(response.data.totalPages);
-    });
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/product`)
+      .then((response) => {
+        setAllProducts(response.data);
+        setTotalPages(response.data.totalPages);
+      });
   }, []);
 
   // console.log(allProducts);
@@ -168,6 +170,37 @@ const HeaderPage = (props) => {
       }
     }
   };
+
+  const [products, setProducts] = useState([]);
+  const [userId, setUserId] = useState(null);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    const userId = Cookies.get("user-id");
+    if (userId) {
+      setUserId(userId);
+    }
+
+    const filteredProducts = products.filter(
+      (product) => product.user._id === userId
+    );
+    setFilteredProducts(filteredProducts);
+    console.log(filteredProducts);
+  }, [userId, products]);
+
+  const getProducts = async () => {
+    try {
+      const response = await axios.get("http://localhost:5001/api/product");
+      console.log(response);
+      setProducts(response.data.items);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div className={`holl-header ${isScrolled ? "shadow" : ""}`}>
@@ -446,127 +479,29 @@ const HeaderPage = (props) => {
           title="User Profile"
           onSubmit={editUserProfileData}
         >
-          {displayError && (
-            <div
-              onClick={() => setDisplayError(false)}
-              style={{ color: "var(--accent-color)" }}
-            >
-              {errorMessage}
+          <div
+            onClick={() => {
+              Cookies.remove("user-token");
+              Cookies.remove("user-id");
+              setUserProfile(false);
+            }}
+          >
+            <LogoutRoundedIcon />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <span>Name</span>
+            <span>Description</span>
+            <span>IsTaken</span>
+            <span>Category</span>
+          </div>
+          {filteredProducts.map((prod) => (
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <span>{prod.name}</span>
+              <span>{prod.description}</span>
+              <span>{`${prod.isTaken}`}</span>
+              <span>{prod.category[0].name}</span>
             </div>
-          )}
-          <TextField
-            label="Full Name"
-            type="text"
-            name="fullName"
-            style={{
-              width: "100%",
-              fontSize: "16px",
-              border: "none",
-              boxShadow: "0 1px 2px #999",
-            }}
-            placeholder={userProfileData.fullName}
-            disabled={userEditProfileData ? false : true}
-            onChange={handleEditChange}
-            defaultValue={userProfileData.fullName}
-          />
-          <TextField
-            label="Address"
-            type="text"
-            name="address"
-            style={{
-              width: "100%",
-              fontSize: "16px",
-              border: "none",
-              boxShadow: "0 1px 2px #999",
-            }}
-            placeholder={userProfileData.address}
-            disabled={userEditProfileData ? false : true}
-            onChange={handleEditChange}
-            defaultValue={userProfileData.address}
-          />
-          <TextField
-            label="Phone"
-            type="text"
-            name="phoneNumber"
-            style={{
-              width: "100%",
-              fontSize: "16px",
-              border: "none",
-              boxShadow: "0 1px 2px #999",
-            }}
-            placeholder={userProfileData.phoneNumber}
-            disabled={userEditProfileData ? false : true}
-            onChange={handleEditChange}
-            defaultValue={userProfileData.phoneNumber}
-          />
-
-          <TextField
-            label="Email"
-            type="email"
-            name="email"
-            style={{
-              width: "100%",
-              fontSize: "16px",
-              border: "none",
-              boxShadow: "0 1px 2px #999",
-            }}
-            placeholder={userProfileData.email}
-            disabled={userEditProfileData ? false : true}
-            onChange={handleEditChange}
-            defaultValue={userProfileData.email}
-          />
-
-          <TextField
-            label="Password"
-            type="password"
-            name="password"
-            style={{
-              width: "100%",
-              fontSize: "16px",
-              border: "none",
-              boxShadow: "0 1px 2px #999",
-            }}
-            placeholder="**********"
-            disabled={userEditProfileData ? false : true}
-            onChange={handleEditChange}
-            defaultValue={userProfileData.password}
-          />
-          {userEditProfileData ? (
-            <div className="user-profile-popup-buttons">
-              <div>
-                <MainButton
-                  name="Cancel"
-                  style={{
-                    backgroundColor: "#fff",
-                    color: "#222",
-                    border: "1px solid #222",
-                  }}
-                  onClick={(e) => {
-                    setUserEditProfileData(false);
-                  }}
-                />
-                <MainButton type="submit" name="Apply Changes" />
-              </div>
-            </div>
-          ) : (
-            <div className="user-profile-popup-buttons">
-              <div
-                onClick={() => {
-                  Cookies.remove("user-token");
-                  Cookies.remove("user-id");
-                  setUserProfile(false);
-                }}
-              >
-                <LogoutRoundedIcon />
-              </div>
-              <button
-                onClick={() => setUserEditProfileData(true)}
-                className="main-button"
-              >
-                Edit Profile
-              </button>
-            </div>
-          )}
+          ))}
         </DashboardPopUp>
       )}
     </div>

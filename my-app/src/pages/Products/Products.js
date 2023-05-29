@@ -54,22 +54,22 @@ const Products = () => {
     }
     setNumberPages(pages);
   };
+  const fetchData = () => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/product?page=${page}`)
+      .then((response) => {
+        if (response.status === 200) {
+          setProducts(response.data.items);
+          countNUmberPages(response.data.totalPages);
+          setTotalPages(response.data.totalPages);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const Fetching = () => {
     useEffect(() => {
-      const fetchData = () => {
-        axios
-          .get(`${process.env.REACT_APP_API_URL}/api/product?page=${page}`)
-          .then((response) => {
-            if (response.status === 200) {
-              setProducts(response.data.items);
-              countNUmberPages(response.data.totalPages);
-              setTotalPages(response.data.totalPages);
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
       fetchData();
     }, [page]);
   };
@@ -150,6 +150,32 @@ const Products = () => {
     setIsMounted(element);
   };
 
+  const setIsTaken = async (id) => {
+    try {
+      const response = await axios.patch(
+        `http://localhost:5001/api/product/isTaken/${id}`,
+        { isTaken: true }
+      );
+      console.log(response);
+      fetchData();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const setIsNotTaken = async (id) => {
+    try {
+      const response = await axios.patch(
+        `http://localhost:5001/api/product/isTaken/${id}`,
+        { isTaken: false }
+      );
+      console.log(response);
+      fetchData();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   //show product from the search bar
   // if (localStorage.nameProduct !== undefined) {
   //   handleShowPro
@@ -161,10 +187,7 @@ const Products = () => {
       {!showProduct ? (
         <div className="product-container">
           <div className="categories-container">
-            <h3
-              className="category-item"
-              onClick={() => HandleAllCategory()}
-            >
+            <h3 className="category-item" onClick={() => HandleAllCategory()}>
               All category
             </h3>
             {categories.map((element) => (
@@ -181,7 +204,6 @@ const Products = () => {
             {products.map((element) => (
               <Card
                 image={`${process.env.REACT_APP_API_IMAGES}/uploads/${element.image}`}
-                price={element.price}
                 name={element.name}
                 description={element.description}
                 category={element.category.name}
@@ -189,6 +211,9 @@ const Products = () => {
                 id={element._id}
                 addProducts={handleAddProducts}
                 show={handleShowProduct}
+                onClickTake={() => setIsTaken(element._id)}
+                onClickIsNotTake={() => setIsNotTaken(element._id)}
+                taken={element.isTaken}
               />
             ))}
           </div>

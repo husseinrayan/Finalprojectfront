@@ -7,6 +7,7 @@ import image6 from "../../images/image6.png";
 import image5 from "../../images/image5.png";
 import { Link } from "react-router-dom";
 import logo from "../../images/header-logo3.png";
+import axios from "axios";
 // import { AiFillCloseCircle } from 'react-icons';
 
 // import image7 from "../../images/image7.png";
@@ -60,6 +61,7 @@ export class Products extends Component {
       });
     }
   };
+
   render() {
     return (
       <div className="home-page-about">
@@ -76,7 +78,17 @@ export class Products extends Component {
                 />
               </div>
               <p className="home-page-about-paragraph">
-              "Our website serves as a dedicated platform for individuals and organizations to make a meaningful difference by donating clothes, toys, and medicines. We provide a convenient and user-friendly interface that connects donors with those in need, fostering a spirit of generosity and compassion. Through our platform, donors can list their items and recipients can request specific donations, ensuring a seamless match between surplus resources and those who require them. With secure communication and location-based matching, we strive to facilitate the donation process, making it easier for donors and recipients to connect and positively impact communities in need."
+                "Our website serves as a dedicated platform for individuals and
+                organizations to make a meaningful difference by donating
+                clothes, toys, and medicines. We provide a convenient and
+                user-friendly interface that connects donors with those in need,
+                fostering a spirit of generosity and compassion. Through our
+                platform, donors can list their items and recipients can request
+                specific donations, ensuring a seamless match between surplus
+                resources and those who require them. With secure communication
+                and location-based matching, we strive to facilitate the
+                donation process, making it easier for donors and recipients to
+                connect and positively impact communities in need."
               </p>
             </div>
           </div>
