@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-import RMZNA from "../../../src/images/header-logo.png";
+import RMZNA from "../../../src/images/header-logo3.png";
 import { NavLink } from "react-router-dom";
 import {
   FaFacebookF,
@@ -20,7 +20,7 @@ const Footer = () => {
           <div className="footer-logo">
             <img src={RMZNA} alt="Logo" />
             <div className="logo-text">
-              <p>Handcrafted Palestinian Embroidery | Clothing</p>
+              <p>Help others | Clothing Games , Medicines</p>
             </div>
           </div>
           <div className="footer-responsive-top-side">
@@ -70,7 +70,7 @@ const Footer = () => {
               <ul>
                 <li>
                   <a
-                    href="https://www.facebook.com/RMZNA.embroidery/"
+                    href="https://www.facebook.com/profile.php?id=100092553177679"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -79,7 +79,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.instagram.com/rmzna_/"
+                    href="https://www.instagram.com/aidfulleb/tagged/"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -88,7 +88,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://wa.me/96170664460"
+                    href="https://wa.me/96181294140"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -101,23 +101,23 @@ const Footer = () => {
             <div className="footer-contact">
               <h3>Contact Us</h3>
               <ul>
-                <li>
+                {/* <li>
                   <FaMapMarkerAlt />
                   <span>Address</span>
-                </li>
+                </li> */}
                 <li>
                   <a
-                    href="mailto:rawankrayyem97@gmail.com"
+                    href="mailto:aidfulleban@gmail.com"
                     className="contact-link"
                   >
                     <FaEnvelope />
-                    <span>rawankrayyem97@gmail.com</span>
+                    <span>aidfulleban@gmail.com</span>
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+70664460" className="contact-link">
+                  <a href="tel:+81294140" className="contact-link">
                     <FaPhone />
-                    <span>70664460</span>
+                    <span>81294140</span>
                   </a>
                 </li>
               </ul>

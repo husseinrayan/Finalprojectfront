@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-// import emailjs from "emailjs-com";
+import emailjs from "emailjs-com";
 import {
   FaEnvelope,
   FaMapMarkerAlt,
@@ -26,68 +26,6 @@ const ContactUs = () => {
     const { value, name } = e.target;
     setData({ ...data, [name]: value });
   };
-
-  // const sendEmail = async (e, err) => {
-  //   console.log(data, form.current);
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-
-  //   try {
-  //     if (data.email && data.name && data.message) {
-  //       await emailjs.sendForm(
-  //         "service_4142vbv",
-  //         "template_6uy649e",
-  //         form.current,
-  //         "CNu08EDHjEOkh-fre"
-  //       );
-  //       setData({
-  //         email: "",
-  //         name: "",
-  //         message: "",
-  //       });
-  //       Swal.fire({
-  //         icon: "success",
-  //         title: "Success",
-  //         html: "<span>Email Sent Successfully</span>",
-  //         timer: 1500,
-  //         timerProgressBar: true,
-  //         showCancelButton: false,
-  //         showConfirmButton: false,
-  //         color: "#fdfdfd",
-  //         background: "#810f05",
-  //       });
-  //     } else if (!data.name) {
-  //       setErr("Please Fill Your Name");
-  //       setTimeout(() => {
-  //         setErr("");
-  //       }, 2000);
-  //     } else if (!data.email) {
-  //       setErr("Please Fill Your Email");
-  //       setTimeout(() => {
-  //         setErr("");
-  //       }, 2000);
-  //     } else {
-  //       setErr("Your Message is reqiured");
-  //       setTimeout(() => {
-  //         setErr("");
-  //       }, 2000);
-  //     }
-  //   } catch (error) {
-  //     Swal.fire({
-  //       icon: "warning",
-  //       title: "Failed",
-  //       html: `<span>${error.message}</span>`,
-  //       timer: 1500,
-  //       timerProgressBar: true,
-  //       showCancelButton: false,
-  //       showConfirmButton: false,
-  //       color: "#fdfdfd",
-  //       background: "#810f05",
-  //     });
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
 
   useEffect(() => {
     if (!isSubmitting) {
@@ -169,56 +107,56 @@ const ContactUs = () => {
         <div className="get-in-touch">
           <h2>Get in touch!</h2>
           <p>
-            <a href="mailto:rawankrayyem97@gmail.com">
+            <a href="mailto:aidfulleban@gmail.com">
               <i>
                 <FaEnvelope />
               </i>
-              rawankrayyem97@gmail.com
+              aidfulleban@gmail.com
             </a>
           </p>
           <p>
-            <a href="tel:+96170664460">
+            <a href="tel:+96181294140">
               <i>
                 <FaPhone />
               </i>
-              +961-70664460
+              +961-81294140
             </a>
           </p>
           <p>
-            <a href="https://wa.me/96170664460">
+            <a href="https://wa.me/96181294140">
               <i>
                 <FaWhatsapp />
               </i>
-              whatsapp.com/rawankrayyem
+              whatsapp.com/Aidful
             </a>
           </p>
           <p>
-            <a href="https://www.facebook.com/RMZNA.embroidery/">
+            <a href="https://www.facebook.com/profile.php?id=100092553177679">
               <i>
                 <FaFacebook />
               </i>
-              facebook.com/RMZNA
+              facebook.com/Aidful
             </a>
           </p>
           <p>
-            <a href="https://www.instagram.com/rmzna_/">
+            <a href="https://www.instagram.com/aidfulleb/tagged/">
               <i>
                 <FaInstagram />
               </i>
-              instagram.com/rmzna
+              instagram.com/Aidful
             </a>
           </p>
-          <p>
+          {/* <p>
             <i>
               <FaMapMarkerAlt />
             </i>
             Tripoli, Lebanon
-          </p>
+          </p> */}
         </div>
       </div>
-      <div className="map-container">
+      {/* <div className="map-container">
      
-      </div>
+      </div> */}
     </div>
   );
 };

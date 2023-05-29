@@ -162,7 +162,7 @@ function DashboardTrainings() {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Training Added Successfully",
+        title: "Donation Added Successfully",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -205,7 +205,7 @@ function DashboardTrainings() {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Training Updated Successfully",
+        title: "Donation Updated Successfully",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -243,7 +243,7 @@ function DashboardTrainings() {
         } catch (error) {
           console.log(error);
         }
-        Swal.fire("Deleted!", "Your training has been deleted.", "success");
+        Swal.fire("Deleted!", "Your Donation has been deleted.", "success");
       }
     });
   };
@@ -262,7 +262,7 @@ function DashboardTrainings() {
       <DashboardHeroSection title="Trainings" />
       {openPopup && (
         <DashboardPopUp
-          title={isEdit ? "Edit Training" : "Add Training"}
+          title={isEdit ? "Edit Donation" : "Add Donation"}
           onClick={
             isEdit
               ? () => {
@@ -356,7 +356,7 @@ function DashboardTrainings() {
       >
         <div className="dashboard-admin-add-button">
           <MainButton
-            name="Add Training"
+            name="Add Donation"
             style={{ padding: "1rem 2rem" }}
             onClick={() => {
               setOpenPopup(true);

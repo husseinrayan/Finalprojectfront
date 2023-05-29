@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-import logo from "../../images/header-logo.png";
+import logo from "../../images/header-logo3.png";
 import { NavLink } from "react-router-dom";
 import {
   FaSearchengin,
@@ -175,7 +175,7 @@ const HeaderPage = (props) => {
         {/* <div className="left-space"></div> */}
         <div className="logo-search">
           <img className="header-logo" src={logo} width="2rem" height="2rem" />
-          <div className="search-icon_search">
+          {/* <div className="search-icon_search">
             <input
               className="search-bare"
               placeholder="search..."
@@ -189,7 +189,7 @@ const HeaderPage = (props) => {
                 onClick={handleButtonClick}
               />
             </NavLink>
-          </div>
+          </div> */}
         </div>
 
         <ul className="list">
@@ -221,7 +221,7 @@ const HeaderPage = (props) => {
               href="#hero"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
-              Training
+              Donation
             </NavLink>
           </li>
           <li>
@@ -309,10 +309,10 @@ const HeaderPage = (props) => {
             </div>
           </li>
         </ul>
-        <div className="center-space"></div>
+        {/* <div className="center-space"></div> */}
         {/* <div className="main-cart">
           <NavLink to="/order">
-            <FaShoppingCart className="cart" />
+            <button > Donation</button>
           </NavLink>
           {findProducts ? <div className="notification"></div> : null}
         </div> */}

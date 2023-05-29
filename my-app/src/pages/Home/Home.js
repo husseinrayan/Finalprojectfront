@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Home.css";
-import image1 from "../../images/image1.avif";
-import image7 from "../../images/image2.avif";
-import image14 from "../../images/image3.avif";
+import image1 from "../../images/image1.png";
+import image7 from "../../images/image2.png";
+import image14 from "../../images/image3.png";
 import Training from "./training.js";
 import About from "./about.js";
 import Card from "../Products/Card/Card";
@@ -18,12 +18,13 @@ function HomePage() {
   const getProducts = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/product?limit=3`
+        `http://localhost:5001/api/product?limit=3`
       );
       console.log(response);
       setProductData(response.data.items);
     } catch (e) {
       console.log(e);
+      alert(e)
     }
   };
 
@@ -135,9 +136,10 @@ function HomePage() {
             {productData.map((product) => (
               <Card
                 key={product.id}
-                image={`${process.env.REACT_APP_API_URL}${product.image}`}
+                image={`http://localhost:5001/uploads/${product.image}`}
                 name={product.name}
-                price={product.price}
+
+                // price={product.price}
                 style={{ width: "500px" }}
               />
             ))}

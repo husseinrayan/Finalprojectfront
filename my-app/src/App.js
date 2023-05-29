@@ -116,7 +116,7 @@ function App() {
               <Route path="home-page" element={<HomePage />} />
               <Route path="products" element={<ProductsPage />} />
               {/* <Route path="products/show-products" element={<ShowProduct />} /> */}
-              <Route path="training" element={<TrainingPage />} />
+              <Route path="donation" element={<TrainingPage />} />
               <Route path="contact" element={<ContactUsPage />} />
               <Route path="*" element={<NotFound />} />
               <Route path="unauthorized" element={<Unauthorized />} />

@@ -161,13 +161,13 @@ function DashboardHome() {
           style={{ flexGrow: 1 }}
         />
         <DashboardCard
-          title="Orders"
+          title="Donate"
           dataCount={countOrders}
           onClick={() => navigate("/dashboard-orders")}
           style={{ flexGrow: 1 }}
         />
         <DashboardCard
-          title="Trainings"
+          title="Donations"
           dataCount={countTrainings}
           onClick={() => navigate("/dashboard-trainings")}
           style={{ flexGrow: 1 }}

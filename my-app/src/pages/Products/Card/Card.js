@@ -11,15 +11,15 @@ const Card = (props) => {
 <div className="header-card">           
         <div  className="transparent-div" onClick={() => props.show(true , props.id)}></div>
         <img src={props.image} alt="product-card" />
-        <FaCartPlus
+        {/* <FaCartPlus
           className="add-button"
           onClick={() => props.addProducts(props.id)}
-        />
+        /> */}
       </div>
       <div className="body-card">
         <div className="info-card">
           <h3>{props.name}</h3>
-          <h4>{props.price}$</h4>
+          {/* <h4>{props.price}$</h4> */}
         </div>
       </div>
     </div>

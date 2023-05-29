@@ -15,7 +15,7 @@ const Training = () => {
       );
       setIsLoading(false);
       setData(response.data.items);
-      console.log(response.data.items);
+      console.log(response);
     } catch (e) {
       console.log(e);
       setIsLoading(false);
@@ -30,7 +30,7 @@ const Training = () => {
     <>
       <section className="training">
         <div className="main-hero-section">
-          <h2>Trainings</h2>
+          <h2>Donation</h2>
         </div>
         <div className="training-cards">
           {isLoading && (
@@ -43,7 +43,7 @@ const Training = () => {
               <div className="training-card" key={training._id}>
                 <div className="training-card-img">
                   <img
-                    src={`${process.env.REACT_APP_API_URL}/${training.image}`}
+                    src={`http://localhost:5001/uploads/${training.image}`}
                     alt="training card image"
                     width="100%"
                     height="100%"

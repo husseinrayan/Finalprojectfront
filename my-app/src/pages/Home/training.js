@@ -7,7 +7,7 @@ import ArrowRightAltRoundedIcon from "@mui/icons-material/ArrowRightAltRounded";
 function Training() {
   return (
     <div className="home-page-training">
-      <h2 className="training-heading">Trainings</h2>
+      <h2 className="training-heading">Donation</h2>
       <div className="home-product-show-more">
         <Link to="/training" className="home-product-show-more-btn">
           Show More <ArrowRightAltRoundedIcon />
