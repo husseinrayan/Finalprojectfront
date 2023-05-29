@@ -1,5 +1,6 @@
 .dashboard-hero-section {
-  background-image: url("../../images/RMZNA-user-login-page.png.png");
+  /* background-image: url("../../images/RMZNA-user-login-page.png.png"); */
+ background-color: aliceblue;
   background-size: contain;
   height: 282px;
   margin-bottom: 40px;

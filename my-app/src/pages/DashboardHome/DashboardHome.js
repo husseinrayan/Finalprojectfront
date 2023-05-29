@@ -35,16 +35,16 @@ function DashboardHome() {
 
   const users = countUsers;
   const products = countProducts;
-  const orders = countOrders;
-  const trainings = countTrainings;
+  const Donate = countOrders;
+  const Donations = countTrainings;
 
   const data = {
-    labels: ["Users", "Products", "Orders", "Trainings"],
+    labels: ["Users", "Products", "Donate", "Donations"],
     datasets: [
       {
         // label: "# of Votes",
-        data: [users, products, orders, trainings],
-        backgroundColor: ["#810f05", "#810f0586", "#669bbc", "#4b100c"],
+        data: [users, products, Donate, Donations],
+        backgroundColor: ["#55a", "#55bbbc", "#669bbc", "#55cb"],
         borderWidth: 1,
       },
     ],
@@ -75,22 +75,22 @@ function DashboardHome() {
       {
         label: "Users",
         data: labels.map(() => users),
-        backgroundColor: "#810f05",
+        backgroundColor: "#55a",
       },
       {
         label: "Products",
         data: labels.map(() => products),
-        backgroundColor: "#810f0586",
+        backgroundColor: "#55bbbc",
       },
       {
-        label: "Order",
-        data: labels.map(() => orders),
+        label: "Donate",
+        data: labels.map(() => Donate),
         backgroundColor: "#669bbc",
       },
       {
-        label: "Trainings",
-        data: labels.map(() => trainings),
-        backgroundColor: "#4b100c",
+        label: "Donations",
+        data: labels.map(() => Donations),
+        backgroundColor: "#55cb",
       },
     ],
   };

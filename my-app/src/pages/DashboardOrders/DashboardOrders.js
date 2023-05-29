@@ -185,14 +185,14 @@ function DashboardOrders() {
         } catch (error) {
           console.log(error);
         }
-        Swal.fire("Deleted!", "Order has been deleted.", "success");
+        Swal.fire("Deleted!", "Donate has been deleted.", "success");
       }
     });
   };
 
   return (
     <div className="dashboard-admins onLoad">
-      <DashboardHeroSection title="Orders" />
+      <DashboardHeroSection title="Donate" />
       <div
         className="dashboard-admin-data-grid"
         style={{ width: "100%", overflow: "hidden" }}

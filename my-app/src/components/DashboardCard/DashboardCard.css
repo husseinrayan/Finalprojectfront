@@ -1,6 +1,8 @@
 .admin-count-card {
   width: 300px;
-  background-color: var(--accent-color);
+  /* background-color: var(--accent-color); */
+  background-color: #55A8C0;
+
   height: 150px;
   border-radius: 10px;
   padding: 10px;
@@ -31,6 +33,6 @@
   font-weight: 600;
   background: url("../../images/RMZNA-user-login-page.png.png");
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* -webkit-text-fill-color: transparent; */
   transition: 0.5s;
 }

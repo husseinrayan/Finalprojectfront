@@ -180,7 +180,7 @@ const Products = () => {
           <div className="products">
             {products.map((element) => (
               <Card
-                image={`${process.env.REACT_APP_API_IMAGES}/${element.image}`}
+                image={`${process.env.REACT_APP_API_IMAGES}/uploads/${element.image}`}
                 price={element.price}
                 name={element.name}
                 description={element.description}

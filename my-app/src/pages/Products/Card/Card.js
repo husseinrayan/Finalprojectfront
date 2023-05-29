@@ -5,7 +5,7 @@ import { FaCartPlus } from "react-icons/fa";
 
 const Card = (props) => {
     const [showProduct, setShowProduct] = useState(false);
-
+        console.log(props.image)
   return (
     <div className="container" style={props.style}>
 <div className="header-card">           
